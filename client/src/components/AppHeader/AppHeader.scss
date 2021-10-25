@@ -1,0 +1,17 @@
+nav {
+    background-color: darkmagenta;
+    .home {
+        font-size: 40px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    ul {
+        li {
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+    .user-name {
+        color: aliceblue !important;
+    }
+}
