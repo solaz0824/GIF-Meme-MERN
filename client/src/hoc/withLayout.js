@@ -18,7 +18,11 @@ const withLayout = (WrappedComponent) => {
     return (
       <>
         <AppHeader />
-        <Main className={props.fullWidth ? "container-fluid" : "container"}>
+        <Main
+          className={
+            props.fullWidth ? "container-fluid p-2 " : "container p-2 "
+          }
+        >
           <WrappedComponent {...props} />
         </Main>
         <Footer />

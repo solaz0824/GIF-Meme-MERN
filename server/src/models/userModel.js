@@ -29,6 +29,10 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
     },
+    myMemes: {
+      type: [{ type: Schema.Types.ObjectId, ref: "item" }],
+      default: [],
+    },
   },
   { timestamps: true }
 );

@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const { config } = require("./config");
 
-const { userRouter } = require("./routes");
+const { userRouter, itemRouter } = require("./routes");
 
 const app = express();
 
@@ -17,6 +17,7 @@ app.use(
   })
 );
 app.use("/users", userRouter);
+app.use("/items", itemRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send({

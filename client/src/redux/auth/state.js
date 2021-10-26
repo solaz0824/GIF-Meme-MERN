@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   loading: false,
   error: null,
   registerSuccess: false,
+  signInSuccess: false,
   signOutSuccess: false,
   authObserverSuccess: false,
   passwordResetDone: false,

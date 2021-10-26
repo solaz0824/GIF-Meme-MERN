@@ -72,6 +72,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         accessToken: action.payload,
+        signInSuccess: true,
         authObserverSuccess: true,
         loading: false,
         error: null,

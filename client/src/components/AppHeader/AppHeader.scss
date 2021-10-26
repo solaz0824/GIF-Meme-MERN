@@ -1,17 +1,41 @@
-nav {
-    background-color: darkmagenta;
-    .home {
-        font-size: 40px;
-        font-weight: 700;
-        cursor: pointer;
-    }
-    ul {
-        li {
-            font-weight: 600;
-            cursor: pointer;
+.AppHeader {
+  position: sticky;
+
+  nav {
+    background-color: rgb(24, 22, 31);
+    .div-header {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      &.second-header {
+        justify-content: right;
+      }
+      .home {
+        .home-icon {
+          width: 30px;
         }
+      }
+    }
+
+    .nav-link {
+      color: azure;
+      font-weight: 600;
+      font-size: 20px;
+      &:hover {
+        color: rgb(245, 121, 6);
+      }
+      &.active {
+          color: rgb(245, 188, 3);
+      }
     }
     .user-name {
-        color: aliceblue !important;
+      color: rgb(246, 248, 248) !important;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .first {
+    flex-direction: column;
+  }
 }
