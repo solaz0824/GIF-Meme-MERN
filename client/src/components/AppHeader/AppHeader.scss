@@ -1,35 +1,35 @@
 .AppHeader {
-.row {
-  height: 8vh;
+  .row {
+    height: 8vh;
 
- .search_result {
-          position: absolute;
-          width: 70%;
-          height: 500px;
-          background-color: #060606;
-          box-shadow: 0 10px 20px rgb(0 0 0 / 77%);
-          border-radius: 7px;
-          color: #fff;
-          padding: 20px;
-          z-index: 1;
-      }
-  nav {
-    background-color: rgb(3, 12, 61);
-    .div-header {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
+    .search_result {
+      position: absolute;
+      width: 70%;
+      height: 500px;
+      background-color: #060606;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 77%);
+      border-radius: 7px;
+      color: #fff;
+      padding: 20px;
+      z-index: 1;
+    }
+    nav {
+      background-color: rgb(3, 12, 61);
+      .div-header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
 
-      &.second-header {
-        justify-content: right;
-      }
-      .home {
-        .home-icon {
-          width: 30px;
+        &.second-header {
+          justify-content: right;
+        }
+        .home {
+          .home-icon {
+            width: 30px;
+          }
         }
       }
     }
-  }
     .nav-link {
       color: azure;
       font-weight: 600;
