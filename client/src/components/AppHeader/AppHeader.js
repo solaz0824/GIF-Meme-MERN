@@ -45,24 +45,20 @@ const AppHeader = ({ ...props }) => {
             <div className="div-header second-header">
               {authObserverSuccess && userInfo ? (
                 <>
-                  <Link
-                    exact
-                    className="user-name align-self-center"
-                    to="/user"
-                  >
+                  <Link className="user-name align-self-center" to="/user">
                     {userInfo.firstName} {userInfo.lastName}
                   </Link>
-                  <Link exact className="nav-link p-1" to="/upload">
+                  <Link className="nav-link p-1" to="/upload">
                     <Button variant="warning">Upload</Button>
                   </Link>
-                  <Link exact className="nav-link p-1" to="/">
+                  <Link className="nav-link p-1" to="/">
                     <Button variant="danger" onClick={() => handleLogout()}>
                       Logout
                     </Button>
                   </Link>
                 </>
               ) : (
-                <Link exact className="nav-link" to="/login">
+                <Link className="nav-link" to="/login">
                   <Button>Login</Button>
                 </Link>
               )}
@@ -76,6 +72,9 @@ const AppHeader = ({ ...props }) => {
             </NavLink>
             <NavLink exact className="nav-link" to="/reactions">
               Reactions
+            </NavLink>
+            <NavLink exact className="nav-link" to="/images">
+              Meme images
             </NavLink>
             <NavLink exact className="nav-link" to="/emojis">
               Emojis

@@ -5,7 +5,6 @@ import { UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_FAIL } from "./types";
 
 export const uploadItemFile =
   (metadata, image, imageURL) => async (dispatch) => {
-    console.log(metadata, image, imageURL);
     dispatch({ type: UPLOAD_REQUEST });
     try {
       let createdItem;

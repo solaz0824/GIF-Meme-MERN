@@ -25,7 +25,6 @@ export async function getUserProfile(id) {
 }
 
 export async function uploadItemData(metadata, image) {
-  console.log(metadata, image);
   const userToken = await getCurrentUserToken();
   return axios({
     method: "POST",
@@ -89,7 +88,9 @@ export function getRandomItems(fail = false) {
       if (fail) {
         rej(new Error("Failed to fetch"));
       }
-      res(axios.get(`https://g.tenor.com/v1/random?&key=JZ48O1IW6LCI`));
+      res(
+        axios.get(`https://g.tenor.com/v1/random?q=excited?&key=JZ48O1IW6LCI`)
+      );
     }, 1000);
   });
 }
@@ -101,52 +102,6 @@ export function getStickers(fail = false) {
       }
       res(
         axios.get(`https://g.tenor.com/v1/search?q=sticker?&key=JZ48O1IW6LCI`)
-      );
-    }, 1000);
-  });
-}
-export function getSad(fail = false) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      if (fail) {
-        rej(new Error("Failed to fetch"));
-      }
-      res(axios.get(`https://g.tenor.com/v1/random?q=sad&key=JZ48O1IW6LCI`));
-    }, 1000);
-  });
-}
-export function getGoodMorning(fail = false) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      if (fail) {
-        rej(new Error("Failed to fetch"));
-      }
-      res(
-        axios.get(
-          `https://g.tenor.com/v1/random?q=goodmorning&key=JZ48O1IW6LCI`
-        )
-      );
-    }, 1000);
-  });
-}
-export function getAngry(fail = false) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      if (fail) {
-        rej(new Error("Failed to fetch"));
-      }
-      res(axios.get(`https://g.tenor.com/v1/random?q=angry&key=JZ48O1IW6LCI`));
-    }, 1000);
-  });
-}
-export function getWorking(fail = false) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      if (fail) {
-        rej(new Error("Failed to fetch"));
-      }
-      res(
-        axios.get(`https://g.tenor.com/v1/random?q=working&key=JZ48O1IW6LCI`)
       );
     }, 1000);
   });

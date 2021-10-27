@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { uploadItemFile } from "../../redux/item/action";
 import { Formik } from "formik";
 import FormSchema from "./FormSchema";
-import UploadIcon from "../../assets/icons/upload-icon.png";
 import Input from "../Input";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "./UploadForm.scss";
 
 const UploadForm = () => {
   const [imageURL, setImageURL] = useState("");
@@ -12,7 +14,6 @@ const UploadForm = () => {
   const dispatch = useDispatch();
   const ref = useRef();
   function uploadItem(metadata) {
-    console.log(imageURL);
     dispatch(uploadItemFile(metadata, image, imageURL));
     setImage("");
     ref.current.value = "";
@@ -50,12 +51,11 @@ const UploadForm = () => {
             handleBlur,
           }) => (
             <div>
-              <div className="modal-title">Upload Meme</div>
               <form onSubmit={handleSubmit} className="form-box">
                 <div className="left-side-modal">
                   <div className="modal-input-box">
                     <Input
-                      className="register-inputs"
+                      className="register-inputs w-100 mb-2"
                       name="title"
                       label=""
                       autoComplete="on"
@@ -68,10 +68,10 @@ const UploadForm = () => {
                       errorMessage={errors.title}
                     />
                   </div>
-                  <div className="modal-input-box">
+                  <div className="modal-input-box w-100 mb-2">
                     <select
                       name="category"
-                      className="register-inputs"
+                      className="category-select w-100"
                       autoComplete="on"
                       value={values.category}
                       onChange={handleChange}
@@ -81,34 +81,41 @@ const UploadForm = () => {
                     >
                       <option value="">Select a category</option>
                       <option value="GIF">GIF</option>
+                      <option value="Image">Image</option>
                       <option value="Emoji">Emoji</option>
                       <option value="Sticker">Sticker</option>
                     </select>
                   </div>
                 </div>
                 <div className="right-side-modal">
-                  <div className="upload-image-box">
+                  <div className="upload-image-box ">
+                    <p className="text-center text-primary">
+                      <u>Choose a file or Enter URL</u>
+                    </p>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        id="upload-input"
+                        className="input-upload mb-2"
+                        type="file"
+                        accept=".jpg, .jpeg, .png, .gif"
+                        ref={ref}
+                        onChange={handleImageChange}
+                      />
+                    </Form.Group>
+                    <p className="pt-2 text-center">OR</p>
                     <input
                       id="upload-input"
-                      className="input-upload"
-                      type="file"
-                      accept=".jpg, .jpeg, .png, .gif"
-                      ref={ref}
-                      onChange={handleImageChange}
-                    />
-                    <input
-                      id="upload-input"
-                      className="input-upload"
+                      className="input-upload w-100 mb-2"
                       type="text"
-                      placeholder="URL"
+                      placeholder="Enter URL here"
                       onChange={handleURLChange}
                       value={imageURL}
                     />
                   </div>
                 </div>
-                <button className="submit" type="submit" submitButton>
-                  Submit
-                </button>
+                <Button className="submit w-100 mb-2" type="submit">
+                  Upload
+                </Button>
               </form>
             </div>
           )}

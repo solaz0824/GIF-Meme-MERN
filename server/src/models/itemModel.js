@@ -23,7 +23,7 @@ const ItemSchema = new Schema(
       type: String,
       required: [true, "Please select a category for this meme"],
       enum: {
-        values: ["Sticker", "Emoji", "GIF"],
+        values: ["Sticker", "Emoji", "GIF", "Image"],
       },
     },
   },

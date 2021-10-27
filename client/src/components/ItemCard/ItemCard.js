@@ -5,7 +5,6 @@ import { OverlayTrigger } from "react-bootstrap";
 const ItemCard = ({ title, image }) => {
   const target = useRef(null);
   const handleCopyClick = () => {
-    console.log(image);
     navigator.clipboard.writeText(image);
   };
   const renderTooltip = (props) => (

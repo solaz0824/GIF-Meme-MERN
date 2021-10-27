@@ -23,7 +23,6 @@ const RegisterFrom = () => {
   return (
     <Formik
       onSubmit={(values) => {
-        console.log(values);
         dispatch(
           registerWithEmailAndPassword(values.email, values.password, {
             firstName: values.name,

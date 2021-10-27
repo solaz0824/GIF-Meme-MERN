@@ -12,6 +12,8 @@ import Trending from "./pages/Trending";
 import Emojis from "./pages/Emojis";
 import Stickers from "./pages/Stickers";
 import Results from "./pages/Results";
+import User from "./pages/User";
+import Images from "./pages/Images";
 import { getAllItemsData } from "./api";
 
 import Spinner from "./components/Spinner";
@@ -23,9 +25,14 @@ const App = () => {
   const history = useHistory();
   const [uploadedItems, setUploadedItems] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  const { loading, signInSuccess } = useSelector((state) => state.auth);
+  const { loading, signInSuccess, authObserverSuccess } = useSelector(
+    (state) => state.auth
+  );
+  const { uploadSuccess, uploadLoading } = useSelector((state) => state.item);
+
   useEffect(() => {
     dispatch(authObserverLoading());
+
     if (uploadedItems.length === 0) {
       setIsLoading(true);
       getAllItemsData()
@@ -37,8 +44,18 @@ const App = () => {
           setIsLoading(false);
           console.log(error);
         });
+    } else {
+      getAllItemsData()
+        .then((res) => {
+          setUploadedItems(res.data.data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          console.log(error);
+        });
     }
-  }, [dispatch]);
+  }, [uploadSuccess]);
 
   useEffect(() => {
     if (!loading && signInSuccess) {
@@ -99,10 +116,24 @@ const App = () => {
             )}
           />
           <Route
+            path="/user"
+            exact
+            render={(routeProps) => (
+              <User {...routeProps} uploadedItems={uploadedItems} />
+            )}
+          />
+          <Route
+            path="/images"
+            exact
+            render={(routeProps) => (
+              <Images {...routeProps} uploadedItems={uploadedItems} />
+            )}
+          />
+          <Route
             path="/"
             exact
             render={(routeProps) => (
-              <Home {...routeProps} uploadedItems={uploadedItems} />
+              <Images {...routeProps} uploadedItems={uploadedItems} />
             )}
           />
         </Switch>

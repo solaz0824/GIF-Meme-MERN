@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getReactions } from "../../api";
+
+import { getRandomItems } from "../../api";
+
 import CardList from "../../components/CardList";
 import withLayout from "../../hoc/withLayout";
 import Spinner from "../../components/Spinner";
+import { filter } from "dom-helpers";
 
-const Reactions = () => {
+const Images = ({ uploadedItems }) => {
   const { loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState([]);
-  const [reactions, setReactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [randomItems, setRandomItems] = useState([]);
+  const uploadedFiltered = uploadedItems.filter(
+    (ele) => ele.category === "Image"
+  );
   useEffect(() => {
     // dispatch(authObserverLoading());
-    if (reactions.length === 0) {
+    if (randomItems.length === 0) {
       setIsLoading(true);
-      getReactions()
+      getRandomItems()
         .then((res) => {
-          setReactions(res.data.results);
+          setRandomItems(res.data.results);
           setIsLoading(false);
         })
         .catch((error) => {
@@ -27,12 +33,12 @@ const Reactions = () => {
   }, [dispatch]);
   return (
     <div className="row">
-      {isLoading && <Spinner color={"pink"} loading={true} />}
+      {isLoading && <Spinner color={"green"} loading={true} />}
       <div className="col">
         <div className="row">
           {!isLoading && (
             <div className="col col-12">
-              <CardList list={reactions} />
+              <CardList list={[...randomItems, ...uploadedFiltered]} />
             </div>
           )}
         </div>
@@ -41,4 +47,4 @@ const Reactions = () => {
   );
 };
 
-export default withLayout(Reactions);
+export default withLayout(Images);

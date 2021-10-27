@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authObserverLoading } from "../../redux/auth/action";
+
 import CardList from "../../components/CardList";
 import withLayout from "../../hoc/withLayout";
-import { getAllItemsData, getRandomItems } from "../../api";
+import { getRandomItems } from "../../api";
 import Spinner from "../../components/Spinner";
 
 const Home = ({ uploadedItems }) => {
   const [randomItems, setRandomItems] = useState([]);
-  const [isLoading, setIsLoading] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  console.log(uploadedItems);
   useEffect(() => {
     if (randomItems.length === 0) {
       setIsLoading(true);
