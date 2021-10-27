@@ -28,7 +28,7 @@ const App = () => {
   const { loading, signInSuccess, authObserverSuccess } = useSelector(
     (state) => state.auth
   );
-  const { uploadSuccess, uploadLoading } = useSelector((state) => state.item);
+  const { uploadSuccess } = useSelector((state) => state.item);
 
   useEffect(() => {
     dispatch(authObserverLoading());
@@ -133,7 +133,7 @@ const App = () => {
             path="/"
             exact
             render={(routeProps) => (
-              <Images {...routeProps} uploadedItems={uploadedItems} />
+              <Home {...routeProps} uploadedItems={uploadedItems} />
             )}
           />
         </Switch>

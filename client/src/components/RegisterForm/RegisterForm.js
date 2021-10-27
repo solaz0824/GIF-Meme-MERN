@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Formik } from "formik";
 import FormSchema from "./FormSchema";
-// import "./style/RegisterForm.scss";
 import { registerWithEmailAndPassword } from "../../redux/auth/action";
 
 import { Link } from "react-router-dom";

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import "./ItemCard.scss";
 import Tooltip from "react-bootstrap/Tooltip";
 import { OverlayTrigger } from "react-bootstrap";
+
 const ItemCard = ({ title, image }) => {
   const target = useRef(null);
   const handleCopyClick = () => {

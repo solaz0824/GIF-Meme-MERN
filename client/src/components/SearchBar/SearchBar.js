@@ -9,7 +9,6 @@ import { useHistory } from "react-router";
 
 const SearchBar = () => {
   const history = useHistory();
-  const [show, setShow] = useState(false);
   const [searched, setSearched] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [selected, setSelected] = useState("");
@@ -52,9 +51,6 @@ const SearchBar = () => {
       });
     }
   };
-  const cardStyle = {
-    display: show ? "block" : "none",
-  };
 
   return (
     <InputGroup onSubmit={handleSearchSubmit}>
@@ -89,9 +85,6 @@ const SearchBar = () => {
       >
         Go
       </Button>
-      <div className="search_result" style={cardStyle}>
-        <div className="result_container"></div>
-      </div>
     </InputGroup>
   );
 };

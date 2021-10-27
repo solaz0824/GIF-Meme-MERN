@@ -10,8 +10,8 @@ const Reactions = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState([]);
   const [reactions, setReactions] = useState([]);
+
   useEffect(() => {
-    // dispatch(authObserverLoading());
     if (reactions.length === 0) {
       setIsLoading(true);
       getReactions()
@@ -25,6 +25,7 @@ const Reactions = () => {
         });
     }
   }, [dispatch]);
+
   return (
     <div className="row">
       {isLoading && <Spinner color={"pink"} loading={true} />}

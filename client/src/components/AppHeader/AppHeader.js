@@ -8,7 +8,7 @@ import HomeIcon from "../../assets/icons/home-icon.png";
 import SearchBar from "../SearchBar/SearchBar";
 
 import "./AppHeader.scss";
-//TODO category page and navlink
+
 const AppHeader = ({ ...props }) => {
   const { loading, authObserverSuccess, user } = useSelector(
     (state) => state.auth

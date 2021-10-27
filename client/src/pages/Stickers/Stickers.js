@@ -14,7 +14,6 @@ const Stickers = ({ uploadedItems }) => {
   );
 
   useEffect(() => {
-    // dispatch(authObserverLoading());
     if (stickers.length === 0) {
       setIsLoading(true);
 

@@ -9,7 +9,6 @@ import Spinner from "../../components/Spinner";
 import { filter } from "dom-helpers";
 
 const Images = ({ uploadedItems }) => {
-  const { loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [randomItems, setRandomItems] = useState([]);
@@ -17,7 +16,6 @@ const Images = ({ uploadedItems }) => {
     (ele) => ele.category === "Image"
   );
   useEffect(() => {
-    // dispatch(authObserverLoading());
     if (randomItems.length === 0) {
       setIsLoading(true);
       getRandomItems()

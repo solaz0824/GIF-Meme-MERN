@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { getTrending } from "../../api";
 
@@ -8,11 +8,10 @@ import withLayout from "../../hoc/withLayout";
 import Spinner from "../../components/Spinner";
 
 const Trending = () => {
-  const { loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
   const [popular, setPopular] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
+
   useEffect(() => {
     if (popular.length === 0) {
       setIsLoading(true);
@@ -28,6 +27,7 @@ const Trending = () => {
         });
     }
   }, [dispatch]);
+
   return (
     <div className="row">
       {isLoading && <Spinner color={"green"} loading={true} />}

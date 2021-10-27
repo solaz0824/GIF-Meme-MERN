@@ -59,6 +59,7 @@ export function getTrending(fail = false) {
     }, 1000);
   });
 }
+
 export function getReactions(fail = false) {
   return new Promise((res, rej) => {
     setTimeout(() => {
@@ -71,6 +72,7 @@ export function getReactions(fail = false) {
     }, 1000);
   });
 }
+
 export function getEmojis(fail = false) {
   return new Promise((res, rej) => {
     setTimeout(() => {
@@ -94,6 +96,7 @@ export function getRandomItems(fail = false) {
     }, 1000);
   });
 }
+
 export function getStickers(fail = false) {
   return new Promise((res, rej) => {
     setTimeout(() => {

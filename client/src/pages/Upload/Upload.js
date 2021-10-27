@@ -3,7 +3,6 @@ import UploadForm from "../../components/UploadForm";
 import withLayout from "../../hoc/withLayout";
 
 const Upload = () => {
-  //TODO logged in check and if not alert to log in
   return (
     <div className="container mt-5 p-4">
       <div className="row">
