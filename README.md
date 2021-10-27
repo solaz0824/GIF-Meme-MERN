@@ -3,7 +3,6 @@
 A webpage for Memes and GIFs in which users can upload their files or urls and share it with anyone. 
 
 ## What users can see
----
 
 
 - Home
@@ -25,15 +24,54 @@ A webpage for Memes and GIFs in which users can upload their files or urls and s
 - User page 
   - If a user is logged in and want to check the user's own uploaded files, clicking the user's name on App Header will redirect the user to user page with the files. 
 
+## What we can see
+
+- Home
+
+  - Display random data from tenor API 
+
+- App Header 
+
+  - hoc - included to withLayout 
+  - Redux - check if user is logged in or not, shows name of the user and upload button
+
+- Search Bar
+
+  - API search and Javascript filter, includes methods to get results.
+
+- Upload 
+
+  - Formik controls form and Yup validates inputs.
+  - User's file from pc is transformmated into url via Cloudinary.
+  - Title, Category, url of file and owner firebase id are sent to mongoDB.
+  - Redux state show what is just uploaded and if it was successful.
+
+- Login 
+
+  - Firebase handles email/password login and google account login. 
+  - Redux state shows if login is successful or not
+
+- Register
+
+  - Firebase handles register 
+  - When register is successfully done, user information is sent to mongoDB. 
+  - Redux state shows if it is successful or not. 
+
+- User page 
+
+  - Get file database from server and display data if owner of the data matches with the logged in user.
+
+    
+
 ## API
----
+
 
 tenor api  https://tenor.com/gifapi
 
 
 
 ## Getting Started
----
+
 
 1. Clone the repository
 ```
@@ -78,7 +116,7 @@ $yarn server
 
 
 ## Configuration
----   
+  
 client
 
 create **.env** file 
@@ -115,7 +153,7 @@ FB_CERT_AUTH_PROVIDER_X509_CERT_URL=
 FB_CERT_CLIENT_X509_CERT_URL=
 ```
 ## File Structure
----
+
 
 ```
 📦src
