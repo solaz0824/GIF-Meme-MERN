@@ -10,17 +10,19 @@ import Register from "./pages/Register";
 import Reactions from "./pages/Reactions";
 import Trending from "./pages/Trending";
 import Emojis from "./pages/Emojis";
+import Stickers from "./pages/Stickers";
+import Results from "./pages/Results";
 import { getAllItemsData } from "./api";
 
 import Spinner from "./components/Spinner";
-import Stickers from "./pages/Stickers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [uploadedItems, setUploadedItems] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  console.log(uploadedItems);
   const { loading, signInSuccess } = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(authObserverLoading());
@@ -90,6 +92,13 @@ const App = () => {
             )}
           />
           <Route
+            path="/results"
+            exact
+            render={(routeProps) => (
+              <Results {...routeProps} uploadedItems={uploadedItems} />
+            )}
+          />
+          <Route
             path="/"
             exact
             render={(routeProps) => (
@@ -98,6 +107,22 @@ const App = () => {
           />
         </Switch>
       )}
+      <ToastContainer
+        position="top-center"
+        toastStyle={{
+          backgroundColor: "rgb(246, 248, 248)",
+          color: "black",
+          fontSize: "12px",
+        }}
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

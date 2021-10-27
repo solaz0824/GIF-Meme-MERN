@@ -4,9 +4,8 @@ import { logout } from "../../redux/auth/action";
 import { getUserProfile } from "../../api";
 import { NavLink, Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
-import InputGroup from "react-bootstrap/InputGroup";
 import HomeIcon from "../../assets/icons/home-icon.png";
+import SearchBar from "../SearchBar/SearchBar";
 
 import "./AppHeader.scss";
 //TODO category page and navlink
@@ -15,6 +14,7 @@ const AppHeader = ({ ...props }) => {
     (state) => state.auth
   );
   const [userInfo, setUserInfo] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const getUserData = async () => {
@@ -34,31 +34,21 @@ const AppHeader = ({ ...props }) => {
   return (
     <header {...props} className="AppHeader">
       <div className="container-fluid">
-        <div className="row">
+        <div className="row first-row">
           <nav className="navbar first navbar-expand navbar-dark justify-content-between">
             <div className="div-header first-header">
               <NavLink exact className="navbar-brand home col" to="/">
                 <img src={HomeIcon} alt="home-icon" className="home-icon" />
               </NavLink>
-              <InputGroup>
-                <FormControl
-                  type="text"
-                  placeholder="Search"
-                  // onChange={(e) => handleSearch(e)}
-                  // onMouseEnter={(e) => handleSearch(e)}
-                />
-                <Button variant="outline-secondary" id="button-addon2">
-                  Go
-                </Button>
-              </InputGroup>
+              <SearchBar />
             </div>
             <div className="div-header second-header">
               {authObserverSuccess && userInfo ? (
                 <>
                   <Link
                     exact
-                    className="user-name align-self-center p-1"
-                    to="/"
+                    className="user-name align-self-center"
+                    to="/user"
                   >
                     {userInfo.firstName} {userInfo.lastName}
                   </Link>
@@ -66,7 +56,9 @@ const AppHeader = ({ ...props }) => {
                     <Button variant="warning">Upload</Button>
                   </Link>
                   <Link exact className="nav-link p-1" to="/">
-                    <Button onClick={() => handleLogout()}>Logout</Button>
+                    <Button variant="danger" onClick={() => handleLogout()}>
+                      Logout
+                    </Button>
                   </Link>
                 </>
               ) : (

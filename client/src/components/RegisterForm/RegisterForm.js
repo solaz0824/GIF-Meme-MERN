@@ -52,10 +52,8 @@ const RegisterFrom = () => {
       }) => (
         <Form onSubmit={handleSubmit}>
           <div className="register-box">
-            <div className="text">Register</div>
-            <div className="space"></div>
             <Input
-              className="register-inputs name"
+              className="register-inputs name w-100 mt-2 p-1"
               type="text"
               name="name"
               label=""
@@ -67,7 +65,7 @@ const RegisterFrom = () => {
               errorMessage={errors.name}
             />
             <Input
-              className="register-inputs surname"
+              className="register-inputs surname w-100 mt-2 p-1"
               type="text"
               name="surname"
               label=""
@@ -81,7 +79,7 @@ const RegisterFrom = () => {
               errorMessage={errors.surname}
             />
             <Input
-              className="register-inputs password"
+              className="register-inputs password w-100 mt-2 p-1"
               type="password"
               name="password"
               label=""
@@ -95,7 +93,7 @@ const RegisterFrom = () => {
             />
 
             <Input
-              className="register-inputs cpassword"
+              className="register-inputs cpassword w-100 mt-2 p-1"
               name="confirm"
               label=""
               autoComplete="on"
@@ -108,7 +106,7 @@ const RegisterFrom = () => {
               errorMessage={errors.confirm}
             />
             <Input
-              className="register-inputs email"
+              className="register-inputs email w-100 mt-2 p-1"
               name="email"
               placeholder="Email"
               label=""
@@ -121,7 +119,9 @@ const RegisterFrom = () => {
               hasErrorMessage={touched.email}
               errorMessage={errors.email}
             />
-            <Button type="submit">Register</Button>
+            <Button type="submit" className="mt-3 w-100">
+              Register
+            </Button>
           </div>
         </Form>
       )}

@@ -3,7 +3,7 @@ import ItemCard from "../ItemCard";
 
 const CardList = ({ list }) => {
   return (
-    <div className="row row-cols-2 row-cols-lg-5 g-2 g-l g-3 w-100">
+    <div className="row row-cols-2 row-cols-lg-5 g-2 g-l g-3">
       {list.map((item) =>
         item.content_description ? (
           <ItemCard

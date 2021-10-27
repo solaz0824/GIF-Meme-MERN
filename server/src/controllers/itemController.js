@@ -26,7 +26,6 @@ async function createItem(req, res, next) {
 }
 
 async function getAllItems(req, res, next) {
-  console.log(req);
   try {
     const allItems = await db.Item.find();
     res.status(200).send({

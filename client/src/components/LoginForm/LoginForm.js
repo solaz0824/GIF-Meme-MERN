@@ -62,31 +62,34 @@ const LoginForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+            <Form.Group className="text-center">
+              <Button variant="success" type="submit" className="w-100">
+                Login
+              </Button>
             </Form.Group>
-            <Button variant="outline-success" type="submit">
-              Login
-            </Button>
           </Form>
-          <div className="forgotPassword">
+          <p className="text-center m-3">OR</p>
+          <div className="text-center">
+            <Button
+              variant="outline-primary"
+              type="submit"
+              onClick={handleLoginWithGoogle}
+              className="w-100"
+            >
+              <img src={google} alt="" /> Google Login
+            </Button>
+          </div>
+          <Link to="/register" className="registerLink">
+            <Button variant="danger" className="register-btn w-100 mt-3">
+              Register
+            </Button>
+          </Link>
+          <div className="forgotPassword mt-3">
             Forgot your password?{" "}
             <span className="recover-link" onClick={handleRecover}>
               Click here
             </span>
           </div>
-          <Button
-            variant="outline-primary"
-            type="submit"
-            onClick={handleLoginWithGoogle}
-          >
-            <img src={google} alt="" /> Google Login
-          </Button>
-          <Link to="/register" className="registerLink">
-            <Button variant="outline-danger" className="register-btn">
-              Register
-            </Button>
-          </Link>
         </div>
       )}
     </>
